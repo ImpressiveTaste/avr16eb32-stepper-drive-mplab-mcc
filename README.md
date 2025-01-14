@@ -97,22 +97,21 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - ADC Negative Channel Selection: Ground
 
 ### AC0
-![AC](./images/ac00.png)  
+![AC Picture 1](./images/ac00.png)  
 
 - Positive input MUX Selection: Positive Pin 4
 - Negative input MUX Selection: Negative Pin 3
 
 ### AC1
 
-<img src="./images/ac01.png">  
+![AC Picture 2](./images/ac01.png)
 
 - Positive input MUX Selection: Positive Pin 6
 - Negative input MUX Selection: Negative Pin 3
 
 ### BOD
 
-<img src="./images/bod01.png">  
-
+![BOD](./images/bod01.png)  
 - BOD Operation in Active Mode: Enabled in continuous mode
 - BOD Level: 2.7 V
 - BOD Operation in Sleep Mode: Disabled
@@ -120,16 +119,19 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 ### CCL
 
 
-<img src="./images/ccl00.png">  
-<img src="./images/ccl_overview.png">  
+![CCL Settings](./images/ccl00.png)  
+![CCL Setup](./images/ccl_overview.png)  
 
 - Enable CCL: Enabled
 
+
 *For LUT0* -Connect the LUT as above, and edit the LUT configurations.
 
-<img src="./images/lut01.png">  
+![LUT EDIT](./images/lut01.png)
 
-<img src="./images/lut00.png">  
+![LUT CONFIG](./images/lut00.png)  
+
+
 
 - Enable LUT: Enabled
 - Clock Selection: OSCHF
@@ -137,9 +139,12 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### TCE
 
-<img src="./images/TCE0.png">  
-<img src="./images/TCE1.png">  
-<img src="./images/TCE2.png">  
+
+![TCE PIC 1](./images/TCE0.png)  
+
+![TCE PIC 2](./images/TCE1.png)  
+
+![TCE PIC 3](./images/TCE2.png)  
 
 - Timer Enable: Enabled
 - Waveform Generation Mode: SINGLESLOPE
@@ -150,9 +155,11 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### WEX
 
-<img src="./images/WEX0.png">  
-<img src="./images/WEX1.png">  
-<img src="./images/WEX2.png">  
+![WEX PIC 1](./images/WEX0.png) 
+
+![WEX PIC 2](./images/WEX1.png)  
+
+![WEX PIC 3](./images/WEX2.png)  
 
 - Global Override Settings for Waveform Outputs : All outputs enabled
 - Deadtime inserion Channel 0-3: Enabled
@@ -163,7 +170,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### EVSYS  
 
-<img src="./images/evsys.png" width="750">  
+![EVSYS](./images/evsys.png) 
 
 - (Generators):Channel 1 CCL_LUT0 -> 
 
@@ -174,7 +181,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### PIN MANAGER  
 
-<img src="./images/pin_manager00.png" width="750">  
+![PIN MANAGER](./images/pin_manager00.png)  
 
 ## Operation
 
