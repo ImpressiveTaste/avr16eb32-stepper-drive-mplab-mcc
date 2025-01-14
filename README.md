@@ -192,4 +192,4 @@ This GIF shows the stepper motor hooked up to a function generator. The GIF also
 
 <img src="images/SPEED_EX2.gif" width="350">
 
-This GIF shows the second example, which has the motor change its speed and direction via software.
+This GIF shows the second example, which has the motor change its speed and direction via software. The speed and steps can be changed in software.
