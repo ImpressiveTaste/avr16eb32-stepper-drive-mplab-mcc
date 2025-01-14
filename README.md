@@ -189,10 +189,10 @@ There are a few notes to be made about the operation of the board. The original 
   
 ## Results
 
-<img src="./images/ex1.gif" width="350">  
+![EX GIF 1](./images/ex1.gif) 
 
 This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
 
-<img src="./images/ex2.gif" width="350">  
+![EX GIF 2](./images/ex2.gif)
 
 This GIF shows the second example, which has the motor change its speed and direction via software. The speed and steps can be changed in software.
