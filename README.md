@@ -10,7 +10,7 @@
 
 # Stepper Motor Board Firmware
 
-<img src="images/Stepper_Angled_Back" width="350"><img src="images/Board_Itself" width="350">
+<img src="images/Stepper_Angled_Back.png" width="350"><img src="images/Board_Itself.png" width="350">
 
 This repository contains an example to generate steps via function generator with the stepper driver reference design. This design is based on the Multiphase Power Board, the original code example is linked in related documentation.
 
@@ -29,20 +29,20 @@ The Microstep mode divides the full-step angle into even smaller steps, providin
 
 ## Related Documentation
 
-- [AVR<sup>®</sup> EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
-- [AVR<sup>®</sup> EB Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR16EB32)
-- [AVR<sup>®</sup> EB Stepper Example Code on GitHub](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main)
+- [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [AVR EB Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR16EB32)
+- [AVR EB Stepper Example Code on GitHub](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main)
 
 ## Software Used
 
 - [MPLAB® X IDE v6.20 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
 - [AVR-Ex DFP-2.10.205 or newer Device Pack](https://packs.download.microchip.com/)
-- [MPLAB® XC8 compiler v3.00](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
-- [MPLAB® Code Configurator (MCC) v 5.5.0](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [MPLAB XC8 compiler v3.00](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [MPLAB Code Configurator (MCC) v 5.5.0](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
 
 ## Hardware Used
 
-- [AVR<sup>®</sup> EB Curiosity Nano](https://www.microchip.com/en-us/development-tool/EV73J36A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [AVR EB Curiosity Nano](https://www.microchip.com/en-us/development-tool/EV73J36A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
 - Stepper Driver Board
 - Motor used in the application: XY42STH34-035A Stepper Motor, but not mandatory
 - A Voltage Power Supply (6-50V and 1-3A current capability, depending on the chosen motor)
@@ -69,27 +69,27 @@ There are a few motor specific options that need to be addressed when swapping m
 
 to change the stepping mode, uncomment the corresponding macro in `stepper.h`
 
-<img src="images/STEPPING MODE.png">
+<img src="images/STEPPING MODE.png">  
 
 ## Setup
 This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
 
 ### INTERRUPT
 
-<img src="images/interrupt00.png">
+<img src="images/interrupt00.png">  
 
 - Global Interrupts Enable: Enabled
 
 ### CLKCTRL
 
-<img src="images/clkctrl00.png">
+<img src="images/clkctrl00.png">  
 
 - Prescaler enabled: Disabled
 
 ### ADC
 
-<img src="images/adc01.png">
-<img src="images/adc02.png">
+<img src="images/adc01.png">  
+<img src="images/adc02.png">  
 
 - Sample Duration : 255
 - ADC Enable: Enabled
@@ -101,21 +101,21 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### AC0
 
-<img src="images/ac00.png">
+<img src="images/ac00.png">  
 
 - Positive input MUX Selection: Positive Pin 4
 - Negative input MUX Selection: Negative Pin 3
 
 ### AC1
 
-<img src="images/ac01.png">
+<img src="images/ac01.png">  
 
 - Positive input MUX Selection: Positive Pin 6
 - Negative input MUX Selection: Negative Pin 3
 
 ### BOD
 
-<img src="images/bod01.png">
+<img src="images/bod01.png">  
 
 - BOD Operation in Active Mode: Enabled in continuous mode
 - BOD Level: 2.7 V
@@ -124,16 +124,16 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 ### CCL
 
 
-<img src="images/ccl00.png">
-<img src="images/ccl_overview.png">
+<img src="images/ccl00.png">  
+<img src="images/ccl_overview.png">  
 
 - Enable CCL: Enabled
 
 *For LUT0* -Connect the LUT as above, and edit the LUT configurations.
 
-<img src="images/lut01.png">
+<img src="images/lut01.png">  
 
-<img src="images/lut00.png">
+<img src="images/lut00.png">  
 
 - Enable LUT: Enabled
 - Clock Selection: OSCHF
@@ -141,9 +141,9 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### TCE
 
-<img src="images/TCE0.png">
-<img src="images/TCE1.png">
-<img src="images/TCE2.png">
+<img src="images/TCE0.png">  
+<img src="images/TCE1.png">  
+<img src="images/TCE2.png">  
 
 - Timer Enable: Enabled
 - Waveform Generation Mode: SINGLESLOPE
@@ -154,9 +154,9 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### WEX
 
-<img src="images/WEX0.png">
-<img src="images/WEX1.png">
-<img src="images/WEX2.png">
+<img src="images/WEX0.png">  
+<img src="images/WEX1.png">  
+<img src="images/WEX2.png">  
 
 - Global Override Settings for Waveform Outputs : All outputs enabled
 - Deadtime inserion Channel 0-3: Enabled
@@ -167,7 +167,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### EVSYS
 
-<img src="images/evsys.png" width ="750">
+<img src="images/evsys.png" width ="750">  
 
 - (Generators):Channel 1 CCL_LUT0 -> 
 
@@ -178,7 +178,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### PIN MANAGER
 
-<img src="images/pin_manager00.png" width ="750">
+<img src="images/pin_manager00.png" width ="750">  
 
 ## Operation
 
@@ -186,10 +186,10 @@ There are a few notes to be made about the operation of the board. The original 
   
 ## Results
 
-<img src="images/ex1.gif" width="350">
+<img src="images/ex1.gif" width="350">  
 
 This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
 
-<img src="images/ex2.gif" width="350">
+<img src="images/ex2.gif" width="350">  
 
 This GIF shows the second example, which has the motor change its speed and direction via software. The speed and steps can be changed in software.
