@@ -67,21 +67,19 @@ There are a few motor specific options that need to be addressed when swapping m
 
 `I_OUT`: Motor Peak Current expressed in [mA]
 
-to change the stepping mode, uncomment the corresponding macro in `stepper.h`
+to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
 <img src="images/STEPPING MODE.png">  
 
 ## Setup
 This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
 
-### INTERRUPT
-
+### INTERRUPT  
 <img src="images/interrupt00.png">  
 
 - Global Interrupts Enable: Enabled
 
-### CLKCTRL
-
+### CLKCTRL  
 <img src="images/clkctrl00.png">  
 
 - Prescaler enabled: Disabled
@@ -165,7 +163,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - Fault Input A Enable: Enabled
 - Fault Event Input A Blanking Enable: Enabled
 
-### EVSYS
+### EVSYS  
 
 <img src="images/evsys.png" width ="750">  
 
@@ -176,7 +174,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - (Users):WEX A
 
 
-### PIN MANAGER
+### PIN MANAGER  
 
 <img src="images/pin_manager00.png" width ="750">  
 
