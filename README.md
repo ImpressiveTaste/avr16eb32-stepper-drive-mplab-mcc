@@ -69,25 +69,25 @@ There are a few motor specific options that need to be addressed when swapping m
 
 to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
-<img src="images/STEPPING MODE.png">  
+<img src="./images/STEPPING MODE.png">  
 
 ## Setup
 This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
 
 ### INTERRUPT  
-<img src="images/interrupt00.png">  
+<img src="./images/interrupt00.png">  
 
 - Global Interrupts Enable: Enabled
 
 ### CLKCTRL  
-<img src="images/clkctrl00.png">  
+<img src="./images/clkctrl00.png">  
 
 - Prescaler enabled: Disabled
 
 ### ADC
 
-<img src="images/adc01.png">  
-<img src="images/adc02.png">  
+<img src="./images/adc01.png">  
+<img src="./images/adc02.png">  
 
 - Sample Duration : 255
 - ADC Enable: Enabled
@@ -99,21 +99,21 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### AC0
 
-<img src="images/ac00.png">  
+<img src="./images/ac00.png">  
 
 - Positive input MUX Selection: Positive Pin 4
 - Negative input MUX Selection: Negative Pin 3
 
 ### AC1
 
-<img src="images/ac01.png">  
+<img src="./images/ac01.png">  
 
 - Positive input MUX Selection: Positive Pin 6
 - Negative input MUX Selection: Negative Pin 3
 
 ### BOD
 
-<img src="images/bod01.png">  
+<img src="./images/bod01.png">  
 
 - BOD Operation in Active Mode: Enabled in continuous mode
 - BOD Level: 2.7 V
@@ -122,16 +122,16 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 ### CCL
 
 
-<img src="images/ccl00.png">  
-<img src="images/ccl_overview.png">  
+<img src="./images/ccl00.png">  
+<img src="./images/ccl_overview.png">  
 
 - Enable CCL: Enabled
 
 *For LUT0* -Connect the LUT as above, and edit the LUT configurations.
 
-<img src="images/lut01.png">  
+<img src="./images/lut01.png">  
 
-<img src="images/lut00.png">  
+<img src="./images/lut00.png">  
 
 - Enable LUT: Enabled
 - Clock Selection: OSCHF
@@ -139,9 +139,9 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### TCE
 
-<img src="images/TCE0.png">  
-<img src="images/TCE1.png">  
-<img src="images/TCE2.png">  
+<img src="./images/TCE0.png">  
+<img src="./images/TCE1.png">  
+<img src="./images/TCE2.png">  
 
 - Timer Enable: Enabled
 - Waveform Generation Mode: SINGLESLOPE
@@ -152,9 +152,9 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### WEX
 
-<img src="images/WEX0.png">  
-<img src="images/WEX1.png">  
-<img src="images/WEX2.png">  
+<img src="./images/WEX0.png">  
+<img src="./images/WEX1.png">  
+<img src="./images/WEX2.png">  
 
 - Global Override Settings for Waveform Outputs : All outputs enabled
 - Deadtime inserion Channel 0-3: Enabled
@@ -165,7 +165,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### EVSYS  
 
-<img src="images/evsys.png" width ="750">  
+<img src="./images/evsys.png" width="750">  
 
 - (Generators):Channel 1 CCL_LUT0 -> 
 
@@ -176,7 +176,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ### PIN MANAGER  
 
-<img src="images/pin_manager00.png" width ="750">  
+<img src="./images/pin_manager00.png" width="750">  
 
 ## Operation
 
@@ -184,10 +184,10 @@ There are a few notes to be made about the operation of the board. The original 
   
 ## Results
 
-<img src="images/ex1.gif" width="350">  
+<img src="./images/ex1.gif" width="350">  
 
 This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
 
-<img src="images/ex2.gif" width="350">  
+<img src="./images/ex2.gif" width="350">  
 
 This GIF shows the second example, which has the motor change its speed and direction via software. The speed and steps can be changed in software.
