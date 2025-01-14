@@ -69,6 +69,7 @@ There are a few motor specific options that need to be addressed when swapping m
 
 to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
+![Stepper Mode](./images/STEPPING%20MODE.png)  
 <img src="./images/STEPPING MODE.png">  
 
 ## Setup
