@@ -70,25 +70,23 @@ There are a few motor specific options that need to be addressed when swapping m
 to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
 ![Stepper Mode](./images/STEPPING%20MODE.png)  
-<img src="./images/STEPPING MODE.png">  
 
 ## Setup
 This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
 
 ### INTERRUPT  
-<img src="./images/interrupt00.png">  
+![Interrupts](./images/interrupt00.png)  
 
 - Global Interrupts Enable: Enabled
 
 ### CLKCTRL  
-<img src="./images/clkctrl00.png">  
+![CLKCTRL](./images/clkctrl00.png)  
 
 - Prescaler enabled: Disabled
 
 ### ADC
-
-<img src="./images/adc01.png">  
-<img src="./images/adc02.png">  
+![ADC Picture 01](./images/adc01.png)  
+![ADC Picture 02](./images/adc02.png)  
 
 - Sample Duration : 255
 - ADC Enable: Enabled
@@ -99,8 +97,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - ADC Negative Channel Selection: Ground
 
 ### AC0
-
-<img src="./images/ac00.png">  
+![AC](./images/ac00.png)  
 
 - Positive input MUX Selection: Positive Pin 4
 - Negative input MUX Selection: Negative Pin 3
