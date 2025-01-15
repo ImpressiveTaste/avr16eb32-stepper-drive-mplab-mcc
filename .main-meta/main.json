@@ -37,8 +37,8 @@
             }
         },
         "author": "Dylan Turner",
-        "peripherals": [TCE, WEX, EVSYS, Comparator, BOD],
-        "keywords": [Bipolar Stepper Motor, Motor Driver, Current Sensor, Reference Design],
+        "peripherals": ["TCE", "WEX", "EVSYS", "Comparator", "BOD"],
+        "keywords": ["Bipolar Stepper Motor", "Motor Driver", "Current Sensor", "Reference Design"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
