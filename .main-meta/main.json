@@ -4,8 +4,8 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.avr16eb32-stepper-drive-mplab-mcc",
-        "version": " ",
-        "displayName": "",
+        "version": "1.0.0",
+        "displayName": "AVR16EB32 Motor Driver Application",
         "projectName": "avr16eb32-stepper-drive-mplab-mcc",
         "shortDescription": "Firmware for the AVR16EB32 stepper motor reference design.",
         "ide": {
@@ -15,16 +15,16 @@
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.50.0"
+                "semverRange": "^3.00.0"
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "AVR-Ex_DFP",
+            "semverRange": "^2.7.621"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=5.5.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,8 +37,8 @@
             }
         },
         "author": "Dylan Turner",
-        "peripherals": [],
-        "keywords": [],
+        "peripherals": [TCE, WEX, EVSYS, Comparator, BOD],
+        "keywords": [Bipolar Stepper Motor, Motor Driver, Current Sensor, Reference Design],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
