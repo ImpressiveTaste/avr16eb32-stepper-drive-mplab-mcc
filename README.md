@@ -185,10 +185,32 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 ## Operation
 
 There are a few notes to be made about the operation of the board. The original code was intended for multiple steps being taken, so doing 1 step causes some functions to be less than suitible for the application, such as `SPEED_LIMIT` and `STEPS_TO_SUBSTEP` These variables are given a default value, but can still be changed but comes with a significant performance decrease, this only goes for the function generator example.
+
+### Over Current Protection
+
+Below are images of the Over Current Protection (OCP) limiting the motors current based on the position of the potentiometer.
+
+350ma Testing 
+
+![350ma](./images/350ma_SINE.png) 
+![350ma_LIM](./images/Current_Limited_350MA.png) 
+
+3 Amp Testing
+
+![3A](./images/3A_SINE.png)  
+![3A_LIM](./images/Current_Limited_3A.png) 
+
+
+### Thermal Testing
+
+Below are images taken during the 3A Motor Testing, it should be noted that the board may get warm.
+
+![Thermal](./images/Thermal_Front.jpg) 
+![Thermal](./images/Thermal_Back.jpg) 
   
 ## Results
 
-![EX GIF 1](./images/ex1.gifm) 
+![EX GIF 1](./images/ex1.gif) 
 
 This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
 
