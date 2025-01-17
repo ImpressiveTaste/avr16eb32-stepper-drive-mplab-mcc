@@ -192,14 +192,22 @@ The original example was designed to move multiple steps in a single operation. 
 
 Below are images of the Over Current Protection (OCP) limiting the motors current based on the position of the potentiometer.
 
+
+
 350ma Testing 
 
+**Without** Current Limiting
 ![350ma](./images/350ma_SINE.png) 
+
+**With** Current Limiting
 ![350ma_LIM](./images/Current_Limited_350MA.png) 
 
 3 Amp Testing
 
+**Without** Current Limiting
 ![3A](./images/3A_SINE.png)  
+
+**With** Current Limiting
 ![3A_LIM](./images/Current_Limited_3A.png) 
 
 
