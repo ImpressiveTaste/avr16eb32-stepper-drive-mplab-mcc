@@ -31,7 +31,7 @@ The Microstep mode divides the full-step angle into even smaller steps, providin
 - [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)
 - [AVR EB Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR16EB32)
 - [AVR EB Stepper Example Code on GitHub](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main)
-
+- [Stepper Driver Reference Design](https://www.microchip.com/en-us/tools-resources/reference-designs/smart-stepper-motor-driver)
 ## Software Used
 
 - [MPLAB® X IDE v6.20 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
