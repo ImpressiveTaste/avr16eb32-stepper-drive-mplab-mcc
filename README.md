@@ -12,54 +12,51 @@
 
 <img src="images/Stepper_Angled_Back.png" width="350"><img src="images/Board_Itself.png" width="350">
 
-This repository contains an example to generate steps via function generator with the stepper driver reference design. This design is based on the Multiphase Power Board, the original code example is linked in related documentation.
+This repository contains an example to generate steps via function generator with the stepper driver reference design. This design is based on the [Multiphase Power Board](https://www.microchip.com/en-us/development-tool/EV35Z86A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08), the original code example is linked in related documentation. This [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) was used to make both code sets.
 
 ## Full-Step Mode
 
-In Full-Step mode, the motor rotates complete mechanical steps at once - for a standard 200 full-steps/revolution stepper motor, this would be 1.8 degrees for a sub-step. The motor's two coils are powered sequentially in four full-steps. The sequence determines the stepper motor's direction of rotation. Full-Step mode is simple to control, but can cause vibration and noise due to the larger step angle. Another drawback of using this mode is that the stepper motor's current consumption is at the highest level, having the lowest efficiency. This mode is often used in applications where the drive algorithm simplicity is more important than the smoothness of operation or precision.
+In Full-Step mode, the motor rotates complete mechanical steps at once - for a standard 200 full-steps/revolution stepper motor, this would be 1.8 degrees for a sub-step. The motor's two coils are powered sequentially in four full-steps. The sequence determines the stepper motor's direction of rotation. Full-Step mode is simple to control, but can cause vibration and noise due to the larger step angle. Another drawback of using this mode is that the stepper motor's current consumption is maximized, with the lowest efficiency. This mode is often used in applications where the drive algorithm simplicity is more important than the smoothness of operation or precision.
 
 ## Half-Step Mode
 
-In Half-Step mode, four extra steps are inserted between the four initial full-steps, which makes the stepper motor rotate by half of its full-step angle. This effectively doubles the number of mechanical steps per revolution - for a standard 200 full-steps/revolution stepper motor, this would be 0.9 degrees for a complete step, resulting in a smoother operation and less vibration compared to the Full-Step mode.
-The benefits of having a balance between simplicity, efficiency, smoothness of operation and a lower current consumption outweigh the increased complexity of the control algorithm needed for this mode. It also provides double resolution of the Full-Step mode.
+In Half-Step mode, four intermediate steps are inserted between the four full-steps, which makes the stepper motor rotate by half of its full-step angle. This effectively doubles the number of mechanical steps per revolution - for a standard 200 full-steps/revolution stepper motor, this would be 0.9 degrees for a complete step, resulting in a smoother operation and less vibration compared to the Full-Step mode. This mode strikes a balance between simplicity, efficiency, smoothness and current consumption.
 
 ## MicroStep Mode
 
-The Microstep mode divides the full-step angle into even smaller steps, providing even smoother operation and higher precision. The number of microsteps per full-step can vary, but common values are 8, 16, 32, or even 256 microsteps per full-step. Even though this mode requires the most complex control algorithms, the current consumption is lower than in Full-Step and Half-Step modes, providing the highest precision, the least vibration and less noise. Microstep mode is often used in applications where precision and smoothness of operation are paramount, such as in CNC machines.
+The Microstep mode divides the full-step angle into even smaller steps, providing even smoother operation and higher precision. The number of microsteps per full-step can vary, but common values are 8, 16, 32, or even 256 microsteps per full-step. Even though this mode requires the most complex control algorithms, the current consumption is lower than in Full-Step and Half-Step modes, with the highest precision, the least vibration and lowest noise. Microstepping is often used in applications where precision and smoothness of operation are paramount, such as in CNC machines.
 
 ## Related Documentation
 
-- [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)
 - [AVR EB Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR16EB32)
 - [AVR EB Stepper Example Code on GitHub](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main)
 
 ## Software Used
 
-- [MPLAB® X IDE v6.20 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [MPLAB® X IDE v6.20 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
 - [AVR-Ex DFP-2.10.205 or newer Device Pack](https://packs.download.microchip.com/)
-- [MPLAB XC8 compiler v3.00](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
-- [MPLAB Code Configurator (MCC) v 5.5.0](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [MPLAB XC8 compiler v3.00](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8)
+- [MPLAB Code Configurator (MCC) v 5.5.0](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
 
-- [AVR EB Curiosity Nano](https://www.microchip.com/en-us/development-tool/EV73J36A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=avr16eb32-bipolar-stepper-motor-drive-github&utm_bu=MCU08)
+- [AVR EB Curiosity Nano](https://www.microchip.com/en-us/development-tool/EV73J36A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)
 - Stepper Driver Board
-- Motor used in the application: XY42STH34-035A Stepper Motor, but not mandatory
-- A Voltage Power Supply (6-50V and 1-3A current capability, depending on the chosen motor)
+- Bipolar Stepper Motor (such as XY42STH34-035A). This PCB is designed to mount to the back of a NEMA 17 motor (42 mm x 42 mm)
+- A Power Supply ( 12 - 24V nominal and 1 - 3A current capability, depending on the chosen motor)
 
 ## Functionaility
 
-**The first application** is replicating common stepper driver ICs. By utilizing the `STEP` and `DIR` pins a user can control the speed and direction of a stepper motor by using a function generator. There is also an onboard potentiometer for current control. 
+**The first application** mimics the interface of common stepper driver ASICs with `STEP` and `DIR` inputs. The `DIR` input controls the direction of rotation, while the `STEP` input is pulsed to advance the motor. There is also an onboard potentiometer for setting the current limit. The current limit is implemented using two Analog Comparators (AC) being OR'ed together in the Configurable Custom Logic (CCL) peripheral to generate a FAULT signal that shuts down the Waveform EXtension (WEX) for the remainder of the PWM cycle. The start of the next PWM waveform will clear the fault. 
 
-In the main loop, the EB monitors the Step pin for any impulses, which will trigger an if statement to determine the motor's direction, controlled by the DIR pin. The current control is managed by a CCL-controlled comparator poll.
+**The second application** is a customized version of this [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) to match the custom PCB.
 
-**The second application** is an updated version of this [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) to better fit the board.
-
-## Configuration
+## Motor Configuration
 
 **Note:** For a standard 200 full-steps/revolution stepper motor, 1.8 mechanical degrees represent 360 electrical degrees (360 electrical degrees/200-steps is 1.8 mechanical degrees).
 
-Configuration is set up in the `stepper.h` files  
+Before using a stepper motor, set the constants in the `stepper.h` file
 
 There are a few motor specific options that need to be addressed when swapping motors
 
@@ -70,6 +67,8 @@ There are a few motor specific options that need to be addressed when swapping m
 to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
 ![Stepper Mode](./images/STEPPING%20MODE.png)  
+
+Then, if using the potentiometer current limit, monitor the signals OUT1 and OUT2 on the pin header (1V/A) with an oscilloscope while adjusting to set the appropriate level.
 
 ## Setup
 This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
@@ -189,10 +188,14 @@ There are a few notes to be made about the operation of the board. The original 
   
 ## Results
 
-![EX GIF 1](./images/ex1.gif) 
+![EX GIF 1](./images/ex1.gifm) 
 
 This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
 
 ![EX GIF 2](./images/ex2.gif)
 
 This GIF shows the second example, which has the motor change its speed and direction via software. The speed and steps can be changed in software.
+
+## Summary 
+
+This has shown the benefits of using the AVR EB as a stepper motor controller. More information about this [reference design](https://www.microchip.com/en-us/tools-resources/reference-designs/smart-stepper-motor-driver) is available from microchip 
