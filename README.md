@@ -194,7 +194,7 @@ Below are images of the Over Current Protection (OCP) limiting the motors curren
 
 
 
-350ma Testing 
+350mA Testing 
 
 **Without** Current Limiting  
 
@@ -204,7 +204,7 @@ Below are images of the Over Current Protection (OCP) limiting the motors curren
 
 ![350ma_LIM](./images/Current_Limited_350MA.png) 
 
-3 Amp Testing
+3A Testing
 
 **Without** Current Limiting  
 
