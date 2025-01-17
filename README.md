@@ -196,18 +196,22 @@ Below are images of the Over Current Protection (OCP) limiting the motors curren
 
 350ma Testing 
 
-**Without** Current Limiting
+**Without** Current Limiting  
+
 ![350ma](./images/350ma_SINE.png) 
 
-**With** Current Limiting
+**With** Current Limiting  
+
 ![350ma_LIM](./images/Current_Limited_350MA.png) 
 
 3 Amp Testing
 
-**Without** Current Limiting
+**Without** Current Limiting  
+
 ![3A](./images/3A_SINE.png)  
 
-**With** Current Limiting
+**With** Current Limiting  
+
 ![3A_LIM](./images/Current_Limited_3A.png) 
 
 
