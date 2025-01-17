@@ -184,7 +184,9 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ## Operation
 
-There are a few notes to be made about the operation of the board. The original code was intended for multiple steps being taken, so doing 1 step causes some functions to be less than suitible for the application, such as `SPEED_LIMIT` and `STEPS_TO_SUBSTEP` These variables are given a default value, but can still be changed but comes with a significant performance decrease, this only goes for the function generator example.
+The original example was designed to move multiple steps in a single operation. Because of this, single step causes some functions to have degraded performance. Macros such as `SPEED_LIMIT` and `STEPS_TO_SUBSTEP` can be adjusted to modify the performance, but will impact the behavior of single step. 
+- `SPEED_LIMIT` adjusts the delay between each step, instead of allowing the motor to go faster.
+- `STEPS_TO_SUBSTEP` improves the smoothness of motion, but causes the motor to advance more than expected.
 
 ### Over Current Protection
 
