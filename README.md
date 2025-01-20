@@ -10,8 +10,6 @@
 
 # Stepper Motor Board Firmware
 
-<img src="images/Stepper_Angled_Back.png" width="350"><img src="images/Board_Itself.png" width="350">
-
 This repository contains an example to generate steps via function generator with the stepper driver reference design. This design is based on the [Multiphase Power Board](https://www.microchip.com/en-us/development-tool/EV35Z86A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08), the original code example is linked in related documentation. This [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) was used to make both code sets.
 
 ## Full-Step Mode
@@ -41,6 +39,8 @@ The Microstep mode divides the full-step angle into even smaller steps, providin
 
 ## Hardware Used
 
+<img src="images/Stepper_Angled_Back.png" width="350"><img src="images/Board_Itself.png" width="350">
+
 - [AVR EB Curiosity Nano](https://www.microchip.com/en-us/development-tool/EV73J36A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)
 - Stepper Driver Board
 - Bipolar Stepper Motor (such as XY42STH34-035A). This PCB is designed to mount to the back of a NEMA 17 motor (42 mm x 42 mm)
@@ -58,20 +58,20 @@ The Microstep mode divides the full-step angle into even smaller steps, providin
 
 Before using a stepper motor, set the constants in the `stepper.h` file
 
-There are a few motor specific options that need to be addressed when swapping motors
+There are a few motor specific options that need to be addressed when swapping motors:
 
 `R`: motor winding resistance expressed in [ohm]
 
 `I_OUT`: Motor Peak Current expressed in [mA]
 
-to change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
+To change the stepping mode, uncomment the corresponding macro in `stepper.h`.  
 
 ![Stepper Mode](./images/STEPPING%20MODE.png)  
 
 Then, if using the potentiometer current limit, monitor the signals OUT1 and OUT2 on the pin header (1V/A) with an oscilloscope while adjusting to set the appropriate level.
 
 ## Setup
-This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files, these will have to be imported from this project.
+This project can be replicated in MCC, with the exception of the `stepper.h` and `stepper.c` files. These will have to be imported from this project.
 
 ### INTERRUPT  
 ![Interrupts](./images/interrupt00.png)  
@@ -90,7 +90,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - Sample Duration : 255
 - ADC Enable: Enabled
 - Left Adjust: Enabled 
-- Start command: Start a conversion immediately.
+- Start command: Start a conversion immediately
 - Free Running: Enabled
 - ADC Positive Channel Selection: ADC Input 20
 - ADC Negative Channel Selection: Ground
@@ -124,7 +124,7 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 - Enable CCL: Enabled
 
 
-*For LUT0* -Connect the LUT as above, and edit the LUT configurations.
+*For LUT0* - Connect the LUT as above, and edit the LUT configurations.
 
 ![LUT EDIT](./images/lut01.png)
 
@@ -171,11 +171,11 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 
 ![EVSYS](./images/evsys.png) 
 
-- (Generators):Channel 1 CCL_LUT0 -> 
+- (Generators): Channel 1 CCL_LUT0 -> 
 
-- (Channels):Channel 1 -> 
+- (Channels): Channel 1 -> 
 
-- (Users):WEX A
+- (Users): WEX A
 
 
 ### PIN MANAGER  
@@ -185,8 +185,8 @@ This project can be replicated in MCC, with the exception of the `stepper.h` and
 ## Operation
 
 The original example was designed to move multiple steps in a single operation. Because of this, single step causes some functions to have degraded performance. Macros such as `SPEED_LIMIT` and `STEPS_TO_SUBSTEP` can be adjusted to modify the performance, but will impact the behavior of single step. 
-- `SPEED_LIMIT` adjusts the delay between each step, instead of allowing the motor to go faster.
-- `STEPS_TO_SUBSTEP` improves the smoothness of motion, but causes the motor to advance more than expected.
+- `SPEED_LIMIT` adjusts the delay between each step, instead of allowing the motor to go faster
+- `STEPS_TO_SUBSTEP` improves the smoothness of motion, but causes the motor to advance more than expected
 
 ### Over Current Protection
 
@@ -194,7 +194,7 @@ Below are images of the Over Current Protection (OCP) limiting the motors curren
 
 
 
-350mA Testing 
+350 mA Testing 
 
 **Without** Current Limiting  
 
@@ -204,7 +204,7 @@ Below are images of the Over Current Protection (OCP) limiting the motors curren
 
 ![350ma_LIM](./images/Current_Limited_350MA.png) 
 
-3A Testing
+3 A Testing
 
 **Without** Current Limiting  
 
@@ -226,7 +226,7 @@ Below are images taken during the 3A Motor Testing, it should be noted that the 
 
 ![EX GIF 1](./images/ex1.gif) 
 
-This GIF shows the stepper motor hooked up to a function generator. The GIF also shows the LED and direction change made by the DIR pin being set.
+This GIF shows the stepper motor hooked up to a function generator. It also shows here the LED and direction change made by the DIR pin being set.
 
 ![EX GIF 2](./images/ex2.gif)
 
