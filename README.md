@@ -20,7 +20,7 @@ In Full-Step mode, the motor rotates complete mechanical steps at once - for a s
 
 In Half-Step mode, four intermediate steps are inserted between the four full-steps, which makes the stepper motor rotate by half of its full-step angle. This effectively doubles the number of mechanical steps per revolution - for a standard 200 full-steps/revolution stepper motor, this would be 0.9 degrees for a complete step, resulting in a smoother operation and less vibration compared to the Full-Step mode. This mode strikes a balance between simplicity, efficiency, smoothness and current consumption.
 
-## MicroStep Mode
+## Microstep Mode
 
 The Microstep mode divides the full-step angle into even smaller steps, providing even smoother operation and higher precision. The number of microsteps per full-step can vary, but common values are 8, 16, 32, or even 256 microsteps per full-step. Even though this mode requires the most complex control algorithms, the current consumption is lower than in Full-Step and Half-Step modes, with the highest precision, the least vibration and lowest noise. Microstepping is often used in applications where precision and smoothness of operation are paramount, such as in CNC machines.
 
