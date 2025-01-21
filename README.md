@@ -10,7 +10,7 @@
 
 # Stepper Motor Board Firmware
 
-This repository contains an example to generate steps via function generator with the stepper driver reference design. This design is based on the [Multiphase Power Board](https://www.microchip.com/en-us/development-tool/EV35Z86A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08), the original code example is linked in related documentation. This [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) was used to make both code sets.
+This repository contains an example to generate steps via function generator with the [Stepper Driver Reference Design](https://www.microchip.com/en-us/tools-resources/reference-designs/smart-stepper-motor-driver). This design is based on the [Multiphase Power Board](https://www.microchip.com/en-us/development-tool/EV35Z86A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08), the original code example is linked in related documentation. This [demo](https://github.com/microchip-pic-avr-examples/avr16eb32-bipolar-stepper-motor-drive/tree/main/3_Full-Ramp) was used to make both code sets.
 
 ## Full-Step Mode
 
