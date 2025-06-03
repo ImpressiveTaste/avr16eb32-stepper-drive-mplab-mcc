@@ -60,7 +60,7 @@ typedef int32_t  stepper_position_t;
 
 #if STEPPING_MODE == MICRO_STEP
 #ifndef MICROSTEPS
-#define MICROSTEPS     32
+#define MICROSTEPS     128
 #endif
 #define K_MODE         MICROSTEPS
 #define STRING         "Microstep"
@@ -68,18 +68,18 @@ typedef int32_t  stepper_position_t;
 
 
 /*PWM Interrupt Interval */
-#define TICK_INTERVAL   50.0                    /* Microseconds */
+#define TICK_INTERVAL   25.0                //50    /* Microseconds */
 
 
 /* DEGPS - degrees per second */
-/* Converts degrees per second into 32 bit integer */
-#define DEGPS_TO_U32(dps)                       (uint32_t)(((dps) * 65536.0 * TICK_INTERVAL * K_MODE) / (STEP_SIZE * 1000000.0) + 0.5)
+/* Converts degrees per second into 16 bit integer */
+#define DEGPS_TO_U16(dps)                       (uint16_t)(((dps) * 65536.0 * TICK_INTERVAL * K_MODE) / (STEP_SIZE * 1000000.0) + 0.5)
 
-/* Converts 32 bit integer into degrees per second */
-#define U32_TO_DEGPS(u32)                       (float)((STEP_SIZE * (u32) * 1000000.0) / (65536.0 * TICK_INTERVAL * K_MODE))
+/* Converts 16 bit integer into degrees per second */
+#define U16_TO_DEGPS(u16)                       (float)((STEP_SIZE * (u16) * 1000000.0) / (65536.0 * TICK_INTERVAL * K_MODE))
 
 /* Speed limit */
-#define  SPEED_LIMIT(SPEED_U32)                 (uint32_t)(SPEED_U32)
+#define  SPEED_LIMIT(SPEED_U16)                 (uint16_t)(((SPEED_U16) > 65535) ? (65535) : (SPEED_U16))
 
 /* Converts steps into substeps */
 #define STEPS_TO_SUBSTEPS(STEPS)                (stepper_position_t)((STEPS)*(float)K_MODE)
@@ -95,7 +95,7 @@ typedef int32_t  stepper_position_t;
 
   returns: new position of the stepper motor
 */
-stepper_position_t Stepper_Move(stepper_position_t, stepper_position_t, uint32_t, uint32_t, uint32_t, uint16_t);
+stepper_position_t Stepper_Move(stepper_position_t, stepper_position_t, uint16_t, uint16_t, uint16_t, uint16_t);
 void               Stepper_TimeTick(void);  /* Called periodically from interrupt context */
 void               Stepper_Init(void);
 

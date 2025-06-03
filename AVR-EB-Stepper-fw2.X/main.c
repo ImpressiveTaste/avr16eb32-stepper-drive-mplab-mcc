@@ -48,17 +48,17 @@ uint16_t Get_VBus(adc_0_channel_t channel)
     return vbus_mv;
 }
 
-stepper_position_t MainMove(stepper_position_t position, stepper_position_t displacement, uint32_t speed)
+stepper_position_t MainMove(stepper_position_t position, stepper_position_t displacement, uint16_t speed)
 {
-    /* Acceleration and deceleration to ramp 0-400RPM in about 5 seconds */
-    uint32_t acc   = DEGPS_TO_U32(0.024);
-    uint32_t decc  = DEGPS_TO_U32(0.024);
+    /* Acceleration and deceleration to ramp 0-400RPM in about 5 seconds */ //0.024
+    uint16_t acc   = DEGPS_TO_U16(0.05);
+    uint16_t decc  = DEGPS_TO_U16(0.05);
     uint16_t vbus;
 
     vbus = Get_VBus(VBUS_ADC);
     printf("\n\rSupply voltage: \t%.2f V", 0.001*(float)vbus);
     printf("\n\rInitial position:\t%.2f steps / %ld sub-steps", SUBSTEPS_TO_STEPS(position), position);
-    printf("\n\rMoving with speed:\t%.3f degrees/second", U32_TO_DEGPS(speed));
+    printf("\n\rMoving with speed:\t%.3f degrees/second", U16_TO_DEGPS(speed));
     position = Stepper_Move(position, displacement, acc, decc, speed, vbus);
     printf("\n\rFinal position: \t%.2f steps / %ld sub-steps", SUBSTEPS_TO_STEPS(position), position);
     printf("\n\r");
@@ -84,8 +84,8 @@ int main(void)
 
     while(1)
     {
-        stepper_position_t sub_steps = STEPS_TO_SUBSTEPS(6667);
-        uint32_t speed = SPEED_LIMIT(DEGPS_TO_U32(400 * 6.0));
+        stepper_position_t sub_steps = STEPS_TO_SUBSTEPS(5000);
+        uint16_t speed = SPEED_LIMIT(DEGPS_TO_U16(65536)); //65536 is the maximum
 
         stepper_position = MainMove(stepper_position, sub_steps, speed);
         _delay_ms(500);

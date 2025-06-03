@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project>                                  
+  <executable name="dist/free/production/AVR-EB-Stepper-fw2.X.production.elf">                 
+    <memory name="program">              
+      <units>bytes</units>                 
+      <length>16384</length>                 
+      <used>13622</used>                     
+      <free>2762</free>                     
+    </memory>                              
+    <memory name="data">                 
+      <units>bytes</units>                 
+      <length>2048</length>                 
+      <used>341</used>                     
+      <free>1707</free>                     
+    </memory>                              
+  </executable>                            
+</project>                                 
