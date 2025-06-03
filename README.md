@@ -30,6 +30,10 @@ The Microstep mode divides the full-step angle into even smaller steps, providin
 
 Current limiting remains active regardless of the selected resolution.  The limit can be tweaked through the `I_OUT` definition in `stepper.h`.
 
+### Higher Speed Operation
+
+`AVR-EB-Stepper-fw2.X` previously stored the commanded speed as a 16-bit value, limiting the maximum step rate.  The firmware now uses 32-bit fixed-point arithmetic for speed calculations.  Update your application to use the new `DEGPS_TO_U32`, `U32_TO_DEGPS` and `SPEED_LIMIT` macros when specifying motion profiles.
+
 ## Related Documentation
 
 - [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)

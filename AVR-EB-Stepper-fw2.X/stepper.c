@@ -57,10 +57,10 @@ typedef enum
 #define RESET_CMD   true
 
 /* This function returns true if the delay for the next step expired */
-static inline bool CheckSteps(bool reset_cmd, uint16_t actual_speed)
+static inline bool CheckSteps(bool reset_cmd, uint32_t actual_speed)
 {
-    static uint16_t counter = 0;
-    uint16_t pre_counter;
+    static uint32_t counter = 0;
+    uint32_t pre_counter;
     
     if(reset_cmd == RESET_CMD)
     {
@@ -236,10 +236,10 @@ static inline void AmplitudeSet(uint16_t amplitude)
     TCE0_AmplitudeSet(amplitude);
 }
 
-stepper_position_t Stepper_Move(stepper_position_t initial_position, stepper_position_t steps, uint16_t acceleration, uint16_t deceleration, uint16_t speed_limit, uint16_t vbus_mv)
-{  
+stepper_position_t Stepper_Move(stepper_position_t initial_position, stepper_position_t steps, uint32_t acceleration, uint32_t deceleration, uint32_t speed_limit, uint16_t vbus_mv)
+{
     stepper_position_t actual_position = initial_position;
-    uint16_t actual_speed = 0;
+    uint32_t actual_speed = 0;
     bool direction;
     uint32_t steps_to_go;
     uint32_t steps_until_stop = 0;
