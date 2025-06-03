@@ -171,7 +171,7 @@ static void StepAdvance(bool direction)
         case 0x00:  a = 0;
                     b = sine_lookup_table[31 - (step & 0x1F)];
                     c = 0;
-                    d = sine_lookup_table[step & 0x1F];;
+                    d = sine_lookup_table[step & 0x1F];
                     break;
         case 0x20: 
                     a = sine_lookup_table[step & 0x1F];
@@ -182,7 +182,7 @@ static void StepAdvance(bool direction)
         case 0x40:            
                     a = sine_lookup_table[31 - (step & 0x1F)];
                     b = 0;
-                    c = sine_lookup_table[step & 0x1F];;
+                    c = sine_lookup_table[step & 0x1F];
                     d = 0;
                     break;     
         case 0x60: 
