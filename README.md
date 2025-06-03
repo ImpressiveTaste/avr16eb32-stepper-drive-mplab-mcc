@@ -32,7 +32,7 @@ Current limiting remains active regardless of the selected resolution.  The limi
 
 ### Higher Speed Operation
 
-`AVR-EB-Stepper-fw2.X` previously stored the commanded speed as a 16-bit value, limiting the maximum step rate.  The firmware now uses 32-bit fixed-point arithmetic for speed calculations.  Update your application to use the new `DEGPS_TO_U32`, `U32_TO_DEGPS` and `SPEED_LIMIT` macros when specifying motion profiles.
+`AVR-EB-Stepper-fw2.X` stores the commanded speed as a 16-bit value, limiting the maximum step rate.  
 
 ## Related Documentation
 
