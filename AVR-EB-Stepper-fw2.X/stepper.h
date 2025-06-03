@@ -59,9 +59,12 @@ typedef int32_t  stepper_position_t;
 #endif 
 
 #if STEPPING_MODE == MICRO_STEP
-#define K_MODE         32
+#ifndef MICROSTEPS
+#define MICROSTEPS     32
+#endif
+#define K_MODE         MICROSTEPS
 #define STRING         "Microstep"
-#endif 
+#endif
 
 
 /*PWM Interrupt Interval */

@@ -24,6 +24,12 @@ In Half-Step mode, four intermediate steps are inserted between the four full-st
 
 The Microstep mode divides the full-step angle into even smaller steps, providing even smoother operation and higher precision. The number of microsteps per full-step can vary, but common values are 8, 16, 32, or even 256 microsteps per full-step. Even though this mode requires the most complex control algorithms, the current consumption is lower than in Full-Step and Half-Step modes, with the highest precision, the least vibration and lowest noise. Microstepping is often used in applications where precision and smoothness of operation are paramount, such as in CNC machines.
 
+### Adjusting Microstep Resolution
+
+`AVR-EB-Stepper-fw2.X` now allows experimenting with higher microstep resolutions.  The desired number of microsteps per electrical step can be configured with the `MICROSTEPS` macro in `stepper.h`.  By increasing this value (for example to `64` or `128`) the firmware will automatically generate a sine lookup table at startup and maintain the same control logic used for 32× microstepping.
+
+Current limiting remains active regardless of the selected resolution.  The limit can be tweaked through the `I_OUT` definition in `stepper.h`.
+
 ## Related Documentation
 
 - [AVR&reg; EB Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus/avr-eb?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-EB&utm_content=stepper-motor-reference-design-github-github&utm_bu=MCU08)

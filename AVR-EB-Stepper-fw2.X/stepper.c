@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "mcc_generated_files/timer/tce0.h"
 #include "stepper.h"
+#include <math.h>
 
 
 #define V_OUT                                   (R)*(I_OUT)  /* Output Voltage [mV] */
@@ -12,41 +13,19 @@
 static volatile bool     time_flag;
 
 #if STEPPING_MODE == MICRO_STEP
-static const uint16_t sine_lookup_table[32] = 
+#ifndef MICROSTEPS
+#define MICROSTEPS 32
+#endif
+static uint16_t sine_lookup_table[MICROSTEPS];
+
+static void GenerateSineTable(void)
 {
-    AMP_TO_U16(0.024541229),
-    AMP_TO_U16(0.073564564),
-    AMP_TO_U16(0.122410675),
-    AMP_TO_U16(0.170961889),
-    AMP_TO_U16(0.21910124),
-    AMP_TO_U16(0.266712757),
-    AMP_TO_U16(0.31368174),
-    AMP_TO_U16(0.359895037),
-    AMP_TO_U16(0.405241314),
-    AMP_TO_U16(0.44961133),
-    AMP_TO_U16(0.492898192),
-    AMP_TO_U16(0.53499762),
-    AMP_TO_U16(0.575808191),
-    AMP_TO_U16(0.615231591),
-    AMP_TO_U16(0.653172843),
-    AMP_TO_U16(0.689540545),
-    AMP_TO_U16(0.724247083),
-    AMP_TO_U16(0.757208847),
-    AMP_TO_U16(0.788346428),
-    AMP_TO_U16(0.817584813),
-    AMP_TO_U16(0.844853565),
-    AMP_TO_U16(0.870086991),
-    AMP_TO_U16(0.893224301),
-    AMP_TO_U16(0.914209756),
-    AMP_TO_U16(0.932992799),
-    AMP_TO_U16(0.949528181),
-    AMP_TO_U16(0.963776066),
-    AMP_TO_U16(0.97570213),
-    AMP_TO_U16(0.985277642),
-    AMP_TO_U16(0.992479535),
-    AMP_TO_U16(0.997290457),
-    AMP_TO_U16(0.999698819)
-};
+    for (uint16_t i = 0; i < MICROSTEPS; i++)
+    {
+        float angle = ((float)(i + 1) * (M_PI_2)) / (float)MICROSTEPS;
+        sine_lookup_table[i] = AMP_TO_U16(sinf(angle));
+    }
+}
 #else /* STEPPING_MODE */
 typedef enum
 {
@@ -162,65 +141,71 @@ static void StepAdvance(bool direction)
 #endif /* STEPPING_MODE==HALF_STEP */
     
 #if STEPPING_MODE == MICRO_STEP
-    static uint8_t step = 0;
-    uint8_t x = (step & 0x60) | direction;
-       
+    static uint16_t step = 0;
+    uint16_t index = step % MICROSTEPS;
+    uint8_t quadrant = (step / MICROSTEPS) & 0x03;
+    uint8_t x = (quadrant << 1) | (direction ? 1 : 0);
+
     switch(x)
     {
         /* CW */
-        case 0x00:  a = 0;
-                    b = sine_lookup_table[31 - (step & 0x1F)];
-                    c = 0;
-                    d = sine_lookup_table[step & 0x1F];
-                    break;
-        case 0x20: 
-                    a = sine_lookup_table[step & 0x1F];
-                    b = 0;
-                    c = 0;
-                    d = sine_lookup_table[31 - (step & 0x1F)];
-                    break;
-        case 0x40:            
-                    a = sine_lookup_table[31 - (step & 0x1F)];
-                    b = 0;
-                    c = sine_lookup_table[step & 0x1F];
-                    d = 0;
-                    break;     
-        case 0x60: 
-                    a = 0;
-                    b = sine_lookup_table[step & 0x1F];
-                    c = sine_lookup_table[31 - (step & 0x1F)];
-                    d = 0;                  
-                    break;
-        
+        case 0x00:
+            a = 0;
+            b = sine_lookup_table[MICROSTEPS - 1 - index];
+            c = 0;
+            d = sine_lookup_table[index];
+            break;
+        case 0x02:
+            a = sine_lookup_table[index];
+            b = 0;
+            c = 0;
+            d = sine_lookup_table[MICROSTEPS - 1 - index];
+            break;
+        case 0x04:
+            a = sine_lookup_table[MICROSTEPS - 1 - index];
+            b = 0;
+            c = sine_lookup_table[index];
+            d = 0;
+            break;
+        case 0x06:
+            a = 0;
+            b = sine_lookup_table[index];
+            c = sine_lookup_table[MICROSTEPS - 1 - index];
+            d = 0;
+            break;
+
         /* CCW */
-        case 0x01: 
-                    a = 0;
-                    b = sine_lookup_table[31 - (step & 0x1F)];
-                    c = sine_lookup_table[step & 0x1F];
-                    d = 0;                  
-                    break;
-        case 0x21: 
-                    a = sine_lookup_table[step & 0x1F];
-                    b = 0;
-                    c = sine_lookup_table[31 - (step & 0x1F)];
-                    d = 0;          
-                    break;
-        case 0x41: 
-                    a = sine_lookup_table[31 - (step & 0x1F)];
-                    b = 0;
-                    c = 0;
-                    d = sine_lookup_table[step & 0x1F];            
-                    break;
-        case 0x61:           
-                    a = 0;
-                    b = sine_lookup_table[step & 0x1F];
-                    c = 0;
-                    d = sine_lookup_table[31 - (step & 0x1F)];            
-                    break;
-                    
-        default:   a = 0; b = 0; c = 0; d = 0; break;           
+        case 0x01:
+            a = 0;
+            b = sine_lookup_table[MICROSTEPS - 1 - index];
+            c = sine_lookup_table[index];
+            d = 0;
+            break;
+        case 0x03:
+            a = sine_lookup_table[index];
+            b = 0;
+            c = sine_lookup_table[MICROSTEPS - 1 - index];
+            d = 0;
+            break;
+        case 0x05:
+            a = sine_lookup_table[MICROSTEPS - 1 - index];
+            b = 0;
+            c = 0;
+            d = sine_lookup_table[index];
+            break;
+        case 0x07:
+            a = 0;
+            b = sine_lookup_table[index];
+            c = 0;
+            d = sine_lookup_table[MICROSTEPS - 1 - index];
+            break;
+
+        default:
+            a = b = c = d = 0;
+            break;
     }
-    step++; step &= 0x7F;
+    step++;
+    step %= (MICROSTEPS * 4);
 #endif /* STEPPING_MODE == MICRO_STEP */
     TCE0_CompareAllChannelsBufferedSet(a, b, c, d);
 }
@@ -235,6 +220,9 @@ void Stepper_TimeTick(void)
 void Stepper_Init(void)
 {
     time_flag = false;
+#if STEPPING_MODE == MICRO_STEP
+    GenerateSineTable();
+#endif
     /* Enable hardware scaling accelerator after initialization */
     TCE0_ScaleEnable(true);
     TCE0_AmplitudeSet(DRIVE_ZERO);
