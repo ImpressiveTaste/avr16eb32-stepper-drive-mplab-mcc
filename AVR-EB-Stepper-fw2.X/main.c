@@ -13,7 +13,7 @@
 */
 
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+Â© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -50,8 +50,9 @@ uint16_t Get_VBus(adc_0_channel_t channel)
 
 stepper_position_t MainMove(stepper_position_t position, stepper_position_t displacement, uint16_t speed)
 {
-    uint16_t acc   = DEGPS_TO_U16(0.3);
-    uint16_t decc  = DEGPS_TO_U16(0.3);
+    /* Acceleration and deceleration to ramp 0-400RPM in about 5 seconds */
+    uint16_t acc   = DEGPS_TO_U16(0.024);
+    uint16_t decc  = DEGPS_TO_U16(0.024);
     uint16_t vbus;
 
     vbus = Get_VBus(VBUS_ADC);
@@ -83,23 +84,12 @@ int main(void)
 
     while(1)
     {
-        stepper_position_t sub_steps;
-        uint16_t           speed;
+        stepper_position_t sub_steps = STEPS_TO_SUBSTEPS(6667);
+        uint16_t speed = SPEED_LIMIT(DEGPS_TO_U16(400 * 6.0));
 
-        sub_steps = STEPS_TO_SUBSTEPS(400);        /* Positive: CW, Negative: CCW */
-        speed = SPEED_LIMIT(DEGPS_TO_U16(360));    /* Degrees per second */
-
-        stepper_position = MainMove(stepper_position,
-                                    sub_steps,
-                                    speed);
+        stepper_position = MainMove(stepper_position, sub_steps, speed);
         _delay_ms(500);
-        
-        sub_steps = -STEPS_TO_SUBSTEPS(200);       /* Positive: CW, Negative: CCW */
-        speed = SPEED_LIMIT(DEGPS_TO_U16(180));    /* Degrees per second */
-
-        stepper_position = MainMove(stepper_position,
-                                    sub_steps,
-                                    speed);
+        stepper_position = MainMove(stepper_position, -sub_steps, speed);
         _delay_ms(500);
     }
 }
