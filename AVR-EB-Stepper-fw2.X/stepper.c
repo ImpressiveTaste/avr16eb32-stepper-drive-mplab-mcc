@@ -255,8 +255,8 @@ stepper_position_t Stepper_Move(stepper_position_t initial_position, stepper_pos
     }
     else if(vbus_mv <= (uint16_t)V_OUT)
     {
-        amplitude    = AMP_TO_U16(1.0);
-        compensation = AMP_TO_U16(1.0);
+        amplitude    = AMP_TO_U16(0.15);
+        compensation = AMP_TO_U16(0.15);
     }
     else
     {
